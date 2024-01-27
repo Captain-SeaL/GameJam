@@ -80,7 +80,7 @@ public class AnimationFollowing : MonoBehaviour
         }
 
         numOfRigids = slave.GetComponentsInChildren<Rigidbody>(true).Length;
-        numOfRigids--;
+        // numOfRigids--;
         
         slaveRigidTransforms = new Transform[numOfRigids];
         masterRigidTransforms = new Transform[numOfRigids];
