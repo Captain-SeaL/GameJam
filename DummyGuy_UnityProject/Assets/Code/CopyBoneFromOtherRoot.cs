@@ -6,6 +6,9 @@ namespace Code
 	{
 		[SerializeField] Transform _root;
 		[SerializeField] Transform _boneToCopy;
+		[SerializeField] bool _inverseRotation;
+		[SerializeField] bool _inversePosition;
+		[SerializeField] Vector3 _rotationNewOffset;
 		
 		Vector3 _offset;
 		Quaternion _rotationOffset;
