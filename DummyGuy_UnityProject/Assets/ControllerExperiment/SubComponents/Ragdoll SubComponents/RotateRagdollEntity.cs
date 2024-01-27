@@ -8,7 +8,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
     public class RotateRagdollEntity : BaseSubComponent
     {
         [Header("Rotation Attributes")]
-        [SerializeField] string TargetRotationObjectName;
         [SerializeField] GameObject TargetRotationObj;
         [SerializeField] float DesiredYRotation;
 
@@ -18,7 +17,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         private void Start()
         {
             subComponentProcessor.DelegateSetEntity(SetRagdoll.INSTANT_ROTATE_ENTITY, InstantRotateEntity);
-            TargetRotationObj = GameObject.Find(TargetRotationObjectName);
             RootPivot = RagdollPartFinder.GetRootJoint(subComponentProcessor.owner);
         }
 

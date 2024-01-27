@@ -8,7 +8,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
     public class MoveRagdollEntity : BaseSubComponent
     {
         [Header("Move Attributes")]
-        [SerializeField] string TargetPositionObj;
         [SerializeField] GameObject TargetObj;
         [SerializeField] Vector3 Offset = new Vector3();
 
@@ -20,7 +19,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         {
             RootPivot = RagdollPartFinder.GetRootJoint(subComponentProcessor.owner);
             RootPivotAnchor = RootPivot.transform.localPosition;
-            TargetObj = GameObject.Find(TargetPositionObj);
 
             subComponentProcessor.DelegateSetEntity(SetRagdoll.INSTANT_MOVE_ENTITY, InstantMoveEntity);
         }
