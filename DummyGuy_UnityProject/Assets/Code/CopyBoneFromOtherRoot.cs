@@ -20,13 +20,13 @@ namespace Code
 			if (_root.gameObject.name == "mixamorig:" + gameObject.name)
 			{
 				_boneToCopy = _root;
-				_offset = transform.position - _boneToCopy.position;
+				_offset = transform.localPosition - _boneToCopy.localPosition;
 				_rotationOffset = _boneToCopy.rotation * Quaternion.Inverse(transform.rotation);
 			}
 			else
 			{
 				_boneToCopy = GetChildWithNameRecursive(_root, "mixamorig:" + gameObject.name);
-				_offset = transform.position - _boneToCopy.position;
+				_offset = transform.localPosition - _boneToCopy.localPosition;
 				_rotationOffset = _boneToCopy.rotation * Quaternion.Inverse(transform.rotation);
 			}
 		}
@@ -48,9 +48,17 @@ namespace Code
 		{
 			if (_boneToCopy)
 			{
-				transform.position = _boneToCopy.position + _offset;
+				transform.localPosition = _boneToCopy.localPosition + _offset;
 				transform.rotation = _boneToCopy.rotation * Quaternion.Inverse(_rotationOffset);
-				// transform.rotation = _boneToCopy.rotation;
+			}
+		}
+		
+		void FixedUpdate()
+		{
+			if (_boneToCopy)
+			{
+				transform.localPosition = _boneToCopy.localPosition + _offset;
+				transform.rotation = _boneToCopy.rotation * Quaternion.Inverse(_rotationOffset);
 			}
 		}
 	}
